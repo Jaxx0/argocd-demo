@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web-template
+  name: web-template
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web-template
+  template:
+    metadata:
+      labels:
+        app: web-template
+    spec:
+      containers:
+        - args:
+            - python
+            - manage.py
+            - runserver
+            - 0.0.0.0:8068
+          image: 192.168.101.123:32000/template:k8s
+          imagePullPolicy: Always
+          name: web-template
