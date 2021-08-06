@@ -5,7 +5,7 @@ metadata:
     app: web-template
   name: web-template
 spec:
-  replicas: 3
+  replicas: 30
   selector:
     matchLabels:
       app: web-template
